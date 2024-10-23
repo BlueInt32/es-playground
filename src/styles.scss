@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply px-3 py-2 rounded cursor-pointer bg-gray-500 text-white hover:bg-gray-600;
+  &.btn-primary {
+    @apply bg-amber-500 hover:bg-amber-600;
+  }
+  &.btn-success {
+    @apply bg-green-500 hover:bg-green-600;
+  }
+  &.btn-outline {
+    @apply bg-transparent border border-gray-400 text-gray-400 hover:border-gray-300 hover:text-gray-300 disabled:text-gray-600 disabled:border-gray-600 disabled:hover:text-gray-600 disabled:hover:border-gray-600;
+  }
+  &.btn-danger-outline {
+    @apply bg-transparent border border-red-500 text-red-500 hover:bg-black hover:text-red-700 hover:border-red-700;
+  }
+  &.btn-danger {
+    @apply bg-red-500 text-white hover:bg-red-700 hover:border-red-700;
+  }
+  &.btn-small {
+    @apply px-2 py-1 text-sm;
+  }
+}
