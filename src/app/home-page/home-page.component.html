@@ -1,0 +1,4 @@
+<p>home-page works!</p>
+<button (click)="esServerConnectionClickHandler()" class="mt-2">Check ES server connection</button>
+<p>ES version: {{ elasticServerVersion }}</p>
+<p *ngIf="errorText">Error: {{ errorText }}</p>
