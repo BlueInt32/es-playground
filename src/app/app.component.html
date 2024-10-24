@@ -1,9 +1,22 @@
-<main class="main">
-    <nav>
-        <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a> |
-        <a routerLink="/index" routerLinkActive="active" ariaCurrentWhenActive="page">Index management</a>
-    </nav>
-      <h1>Elasticsearch playground</h1>
+<main class="flex flex-col">
+  <h1>Elasticsearch playground</h1>
+  <nav class="font-bold">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      ariaCurrentWhenActive="page"
+      >Home</a
+    >
+    |
+    <a
+      routerLink="/index"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      ariaCurrentWhenActive="page"
+      >Index management</a
+    >
+  </nav>
 </main>
 
-<router-outlet />
+<router-outlet class="m-4" />

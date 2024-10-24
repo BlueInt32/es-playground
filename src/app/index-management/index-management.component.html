@@ -1,5 +1,20 @@
 <p>Index state: {{ state }}</p>
 
-<button (click)="createIndex()" class="btn btn-primary m-2">Create index</button>
-<button (click)="removeIndex()" class="btn btn-danger mr-2">Remove index</button>
-<button (click)="populateIndex()" class="btn btn-success mr-2">Populate index</button>
+<button (click)="createIndex()" class="btn btn-primary mt-2 mr-2">
+  Create index
+</button>
+<button (click)="removeIndex()" class="btn btn-danger mt-2 mr-2">
+  Remove index
+</button>
+<button (click)="populateIndex()" class="btn btn-success mt-2 mr-2">
+  Populate index
+</button>
+
+<p *ngIf="loading">Waiting refresh cycle...</p>
+<ul class="list-none">
+  [
+  <li class="ml-4" *ngFor="let item of items">
+    &#123; "name": "{{ item }}" &#125;,
+  </li>
+  ]
+</ul>

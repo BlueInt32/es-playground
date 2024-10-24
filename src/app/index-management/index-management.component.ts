@@ -1,12 +1,13 @@
+import { NgFor, NgIf } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { bulkPayload } from '../payloads/indexCreations/bulk';
-import { payload } from '../payloads/indexCreations/full';
+import { bulkPayload } from '../code-samples/indexCreations/bulk';
+import { payload } from '../code-samples/indexCreations/full';
 
 @Component({
   selector: 'app-index-management',
   standalone: true,
-  imports: [],
+  imports: [NgFor, NgIf],
   templateUrl: './index-management.component.html',
   styleUrl: './index-management.component.scss',
 })
@@ -15,6 +16,8 @@ export class IndexManagementComponent {
   baseUrl = 'http://localhost:9200';
   errorText = '';
   state = '';
+  items = [];
+  loading = false;
 
   ngOnInit() {
     this.checkIndex();
@@ -24,13 +27,16 @@ export class IndexManagementComponent {
       next: (body: any) => {
         console.log(body);
         this.state = `✅ Index exists (${body.hits.hits.length} hits)`;
+        this.items = body.hits.hits.map((h: any) => h._source.name);
       },
       error: () => {
         this.state = '❌ No index';
+        this.items = [];
       },
     });
   }
   populateIndex() {
+    this.loading = true;
     this.http
       .post(`${this.baseUrl}/_bulk`, bulkPayload, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -39,7 +45,8 @@ export class IndexManagementComponent {
         next: (body: any) => {
           setTimeout(() => {
             this.checkIndex();
-          }, 500);
+            this.loading = false;
+          }, 1000);
         },
         error: () => {
           this.checkIndex();
