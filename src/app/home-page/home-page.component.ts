@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Highlight } from 'ngx-highlightjs';
 import { HighlightLineNumbers } from 'ngx-highlightjs/line-numbers';
-import { esServerContainerCreationScript } from '../code-samples/dockers/es';
+import { esServerContainerCreationScript } from '../../assets/dockers/es';
 @Component({
   selector: 'app-home-page',
   standalone: true,

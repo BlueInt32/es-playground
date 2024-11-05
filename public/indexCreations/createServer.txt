@@ -1,0 +1,13 @@
+docker container run \
+  --rm \
+  --name es01 \
+  -e xpack.security.enabled=false \
+  -e http.cors.enabled=true \
+  -e http.cors.allow-origin="http://localhost:9100" \
+  -e http.cors.allow-origin="http://localhost:4200" \
+  -e http.cors.allow-headers="Authorization, X-Requested-With,X-Auth-Token,Content-Type, Content-Length" \
+  -e discovery.type=single-node \
+  -p 9200:9200 \
+  -it \
+  -m 1GB \
+  docker.elastic.co/elasticsearch/elasticsearch:8.15.2

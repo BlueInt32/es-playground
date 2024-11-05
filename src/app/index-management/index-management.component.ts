@@ -1,8 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { bulkPayload } from '../code-samples/indexCreations/bulk';
-import { payload } from '../code-samples/indexCreations/full';
+import { bulkPayload } from '../../../public/indexCreations/bulk';
+// import { full } from '../code-samples/indexCreations/full';
 
 @Component({
   selector: 'app-index-management',
@@ -55,7 +55,7 @@ export class IndexManagementComponent {
   }
 
   createIndex() {
-    this.http.put(`${this.baseUrl}/sentences`, payload).subscribe({
+    this.http.put(`${this.baseUrl}/sentences`, '').subscribe({
       next: () => {
         this.checkIndex();
       },

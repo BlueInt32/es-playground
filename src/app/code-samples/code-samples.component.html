@@ -1,0 +1,12 @@
+<button
+  class="btn mr-1"
+  *ngFor="let sample of codeSamplesMap"
+  (click)="sampleClickHandler(sample.code, sample.hl)"
+>
+  {{ sample.label }}
+</button>
+
+<pre spellcheck="false">
+    <code [highlight]="currentCode"  [language]="currentCodeHighlight" lineNumbers>
+    </code>
+</pre>
